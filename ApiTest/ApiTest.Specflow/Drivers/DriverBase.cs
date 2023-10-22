@@ -1,5 +1,5 @@
-﻿using RestSharp;
-using RestSharp.Authenticators;
+﻿using ApiTest.Common.Tools;
+using RestSharp;
 using Xunit.Abstractions;
 
 namespace ApiTest.Specflow.Drivers
@@ -22,7 +22,7 @@ namespace ApiTest.Specflow.Drivers
 
             var options = new RestClientOptions(baseUrl)
             {
-                Authenticator = new HttpBasicAuthenticator(username, password)
+                Authenticator = new RestApiAuthenticator(baseUrl, username, password)
             };
             restClient = new RestClient(options);
         }

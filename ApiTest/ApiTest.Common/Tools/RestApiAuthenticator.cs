@@ -20,7 +20,7 @@ namespace ApiTest.Common.Tools
         protected override async ValueTask<Parameter> GetAuthenticationParameter(string accessToken)
         {
             Token = string.IsNullOrEmpty(Token) ? await GetToken() : Token;
-            return new HeaderParameter(KnownHeaders.Authorization, Token);
+            return new HeaderParameter(KnownHeaders.Authorization, $"Basic {Token}");
         }
 
         async Task<string> GetToken()
