@@ -1,6 +1,7 @@
 ﻿using BoDi;
 using System.Reflection;
 using ApiTest.Common.Exceptions;
+using ApiTest.Common.Http;
 using Microsoft.Extensions.Configuration;
 using ApiTest.Specflow.Configuration.Models;
 using ApiTest.Specflow.Drivers;
@@ -40,15 +41,14 @@ namespace ApiTest.Specflow.Configuration
 
         public static IObjectContainer AddApiClients(this IObjectContainer objectContainer)
         {
-            var testOutputHelper = objectContainer.Resolve<ITestOutputHelper>();
-            var baseUrl = objectContainer.Resolve<BaseUrl>();
-            var credentials = objectContainer.Resolve<Credentials>();
+           var testOutputHelper = objectContainer.Resolve<ITestOutputHelper>();
+           var baseUrl = objectContainer.Resolve<BaseUrl>();
+           var credentials = objectContainer.Resolve<Credentials>();
 
-            var bookingDriver = new BookingDriver(testOutputHelper, baseUrl.Value, credentials.Username, credentials.Password);
+           var todoDriver = new TodoDriver(testOutputHelper, baseUrl.Value, credentials.Username, credentials.Password);
+           objectContainer.RegisterInstanceAs<ITodoDriver>(todoDriver);
 
-            objectContainer.RegisterInstanceAs<IBookingDriver>(bookingDriver);
-
-            return objectContainer;
+           return objectContainer;
         }
     }
 }

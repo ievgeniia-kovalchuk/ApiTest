@@ -19,7 +19,7 @@ namespace ApiTest.Specflow.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public partial class PetFeature : object, Xunit.IClassFixture<PetFeature.FixtureData>, System.IDisposable
+    public partial class TodoFeature : object, Xunit.IClassFixture<TodoFeature.FixtureData>, System.IDisposable
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -28,10 +28,10 @@ namespace ApiTest.Specflow.Features
         
         private Xunit.Abstractions.ITestOutputHelper _testOutputHelper;
         
-#line 1 "Booking.feature"
+#line 1 "Todo.feature"
 #line hidden
         
-        public PetFeature(PetFeature.FixtureData fixtureData, ApiTest_Specflow_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public TodoFeature(TodoFeature.FixtureData fixtureData, ApiTest_Specflow_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();
@@ -40,7 +40,7 @@ namespace ApiTest.Specflow.Features
         public static void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Pet", "https://petstore.swagger.io/#/pe", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Todo", "https://apichallenges.herokuapp.com/docs", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -80,16 +80,16 @@ namespace ApiTest.Specflow.Features
             this.TestTearDown();
         }
         
-        [Xunit.SkippableFactAttribute(DisplayName="Get Booking By Id")]
-        [Xunit.TraitAttribute("FeatureTitle", "Pet")]
-        [Xunit.TraitAttribute("Description", "Get Booking By Id")]
-        [Xunit.TraitAttribute("Category", "pet")]
-        public void GetBookingById()
+        [Xunit.SkippableFactAttribute(DisplayName="Create new todo item")]
+        [Xunit.TraitAttribute("FeatureTitle", "Todo")]
+        [Xunit.TraitAttribute("Description", "Create new todo item")]
+        [Xunit.TraitAttribute("Category", "todo")]
+        public void CreateNewTodoItem()
         {
             string[] tagsOfScenario = new string[] {
-                    "pet"};
+                    "todo"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Booking By Id", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create new todo item", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -100,26 +100,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 6
- testRunner.Given("I get booking id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 7
- testRunner.When("I get booking by id \'34\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "name",
                             "value"});
                 table1.AddRow(new string[] {
-                            "FirstName",
-                            "Sally"});
+                            "Title",
+                            "Test"});
                 table1.AddRow(new string[] {
-                            "LastName",
-                            "Brown"});
+                            "DoneStatus",
+                            "false"});
                 table1.AddRow(new string[] {
-                            "TotalPrice",
-                            "111"});
-#line 8
- testRunner.Then("The result contains:", ((string)(null)), table1, "Then ");
+                            "Description",
+                            "Test Description"});
+#line 6
+ testRunner.When("I create new todo item:", ((string)(null)), table1, "When ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -132,12 +126,12 @@ this.ScenarioInitialize(scenarioInfo);
             
             public FixtureData()
             {
-                PetFeature.FeatureSetup();
+                TodoFeature.FeatureSetup();
             }
             
             void System.IDisposable.Dispose()
             {
-                PetFeature.FeatureTearDown();
+                TodoFeature.FeatureTearDown();
             }
         }
     }
